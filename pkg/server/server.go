@@ -18,7 +18,6 @@ func (s *Server) InitServer(addr string) error {
 }
 
 func (s *Server) AddHandler(path string, handler func(http.ResponseWriter, *http.Request), acceptedContentsType ...string) {
-	fmt.Println(len(acceptedContentsType))
 	if len(acceptedContentsType) > 0 {
 		handler = middleware.MiddleContentType(handler, acceptedContentsType)
 	}
